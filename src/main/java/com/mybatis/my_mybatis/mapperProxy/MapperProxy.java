@@ -24,7 +24,7 @@ public class MapperProxy implements InvocationHandler {
     }
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    public Object invoke(Object proxy, Method method, Object[] args) {
         //读取mapper.xml文件
         MapperBean mapperBean = configuration.readMapper("mapper/UserMapper.xml");
         //是否是xml文件对应的接口
@@ -32,7 +32,7 @@ public class MapperProxy implements InvocationHandler {
             return null;
         }
 
-        //遍历所有的id
+        //遍历接口下所有的方法
         List<Function> list = mapperBean.getList();
         if (null != list && list.size() != 0) {
             for (Function function : list) {
