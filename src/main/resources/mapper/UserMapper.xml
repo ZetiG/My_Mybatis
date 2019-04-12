@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.mybatis.web.mapper.UserMapper">
+    <select id="getUserById" resultType ="com.mybatis.web.entity.UserEntity">
+        select * from t_user where id = ?
+    </select>
+</mapper>
